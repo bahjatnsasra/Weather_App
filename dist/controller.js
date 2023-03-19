@@ -23,16 +23,23 @@ async function renderSavedCities() {
 }
 
 
-function insertCityToDB(cityName) {
+
+$("#weather").on("click",".DB_saveButtons",function () {
+    let cityName = $(this).closest("div").next(".city_name").html()
     if (cityName) {
         apiManager.saveCity(cityName)
         $("#city_input").val("")
     }
-    
-}
+})
 
-function removeCityFromDB(cityName) {
-    console.log(cityName);
-    apiManager.deleteCity(cityName)
-}
+
+
+$("#weather").on("click",".DB_deleteButtons",function () {
+    let cityName = $(this).closest("div").next(".city_name").html()
+    if (cityName) {
+        apiManager.deleteCity(cityName)
+        $("#city_input").val("")
+    }
+})
+
 
