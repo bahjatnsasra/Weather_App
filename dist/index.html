@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+<body onload="loadPage()">
+
+    <script id="weather-template" type="text/x-handlebars-template">
+        {{#each allCities}}
+            <div id="buttons_container">
+                <button class="DB_saveButtons">save</button>
+                <button class="DB_deleteButtons">delete</button>
+            </div>
+            <div class="city_name">{{name}}</div>
+            <div>{{condition}}</div>
+            <div>{{temperature}}</div>
+            <img src="{{conditionPic}}" >
+            <hr>
+        {{/each}}
+        
+    </script>
+
+
+    
+
+    <label for="city_input">City Name</label>
+    <input id="city_input" type="text" placeholder="City">
+    <button onclick="newCity()">search</button>
+    <hr>
+
+
+    <div class="weather"></div>	
+</body>
+    
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+<script src="model.js"></script>
+<script src="view.js"></script>
+<script src="controller.js"></script>
+
+</html>
